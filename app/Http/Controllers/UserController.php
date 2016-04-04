@@ -9,7 +9,7 @@ use App\Http\Requests;
 class UserController extends Controller
 {
     public function getIndex() {
-        return view('index');
+        return view('user.index');
     }
 
     public function getLogin() {
