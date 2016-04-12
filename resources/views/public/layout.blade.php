@@ -27,8 +27,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="getting-started.html">李耀辉</a></li>
-                <li class="active"><a href="getting-started.html">退出登录</a></li>
+                <li class="active"><a href="###">{{ session('login_user')['name'] }}</a></li>
+                <li class="active"><a href="/user/logout">退出登录</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -42,8 +42,8 @@
                 <li>
                     <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-th"></i>数据管理  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <div class="collapse" id="demo3">
-                        <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-qrcode"></i>  录入</a>
-                        <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-search"></i>  查询</a>
+                        <a href="/disease" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-qrcode"></i>  录入</a>
+                        <a href="/disease/patient" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-search"></i>  查询</a>
                         <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-upload"></i>  导入</a>
                         <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-download"></i>  导出</a>
                         <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-exclamation-sign"></i>  删除</a>
@@ -54,8 +54,7 @@
                 <li class="collapse" id="demo4">
                     <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-qrcode"></i>  新增</a>
                     <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-search"></i>  查询</a>
-                    <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-upload"></i>  导入</a>
-                    <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-download"></i>  导出</a>
+                    <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-search"></i>  修改</a>
                     <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-exclamation-sign"></i>  删除</a>
                 </li>
                 </li>
@@ -64,15 +63,13 @@
         <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a> Panel Title</h3>
+                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>侧边栏</h3>
                 </div>
                 <div class="panel-body">
                     @yield('content')
                 </div><!-- panel body -->
             </div>
-            @yield('content')
         </div><!-- content -->
-
     </div>
 </div>
 <!--footer-->
