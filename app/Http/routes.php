@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-
+Route::any('/', 'UserController@login');
 Route::any('/user/login', 'UserController@login');
 Route::any('/user/logout', 'UserController@logout');
 //
