@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>{{ $title or "首页" }} - 知先生物数据管理系统</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="favicon_16.ico"/>
-    <link rel="bookmark" href="favicon_16.ico"/>
     <!-- site css -->
     <link rel="stylesheet" href="/dist/css/site.min.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
