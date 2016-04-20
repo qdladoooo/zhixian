@@ -139,7 +139,7 @@
                         </div>
                     </div>
 
-                    <div class="panel panel-info" id="pathological" style="display: none;">
+                    <div class="panel panel-danger" id="pathological" style="display: none;">
                         <div class="panel-heading">病理资料</div>
                         <div class="panel-body">
                             <div class="form-group">
@@ -220,7 +220,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-info"  id="biochemical_test" >
+        <div class="panel panel-success"  id="biochemical_test" >
             <div class="panel-heading">肿瘤生化检测</div>
             <div class="panel-body">
                 <div class="form-group">
@@ -308,7 +308,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">检测值</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-3">
                         <input type="number" max="10" min="0" name="detected_value" class="form-control" placeholder="检测值">
                     </div>
                 </div>
