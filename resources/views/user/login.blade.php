@@ -89,7 +89,7 @@
                     dataType: "json",
                     success: function(msg) {
                         if(msg.flag) {
-                            location.href = "/disease";
+                            location.href = "/sample";
 //                            location.href = "/user?url=" + encodeURIComponent('/admin/activity/publish');
                         } else {
                             alert(msg.messages[0]);

@@ -1,6 +1,6 @@
 @extends('public.layout')
 @section('content')
-    <form class="form-horizontal" method="post" action="/disease">
+    <form class="form-horizontal" method="post" action="/sample">
         <div class="panel panel-primary">
             <div class="panel-heading">患者信息</div>
             <div class="panel-body">

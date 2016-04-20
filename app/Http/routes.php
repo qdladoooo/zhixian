@@ -19,7 +19,7 @@ Route::any('/user/logout', 'UserController@logout');
 Route::group(['middleware' => 'auth.base'], function () {
     //用户系统
     Route::controller('user', 'UserController');
-    Route::controller('disease', 'DiseaseController');
+    Route::controller('sample', 'SampleController');
 });
 
 

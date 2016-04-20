@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Disease extends Model {
+class Sample extends Model {
 
-    protected $table = 'disease';
+    protected $table = 'sample';
 }
 
 
