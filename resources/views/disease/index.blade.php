@@ -132,168 +132,177 @@
                             <input type="text" name="other_tumour_info" class="form-control" placeholder="在此填写『其他』疾病">
                         </div>
                     </div>
-
-
-                    <div id="pathological" style="display: none;">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">肿瘤部位</label>
-                            <div class="col-sm-4">
-                                <select id="tumour_location" name="tumour_location" class="form-control">
-                                    <option value="肺">肺</option>
-                                    <option value="胃">胃</option>
-                                    <option value="肝">肝</option>
-                                    <option value="肠">肠</option>
-                                    <option value="胰腺">胰腺</option>
-                                    <option value="食道">食道</option>
-                                    <option value="卵巢">卵巢</option>
-                                    <option value="前列腺">前列腺</option>
-                                    <option value="甲状腺">甲状腺</option>
-                                    <option value="乳腺">乳腺</option>
-                                    <option value="宫颈">宫颈</option>
-                                    <option value="膀胱">膀胱</option>
-                                    <option value="肾">肾</option>
-                                    <option value="淋巴">淋巴</option>
-                                    <option value="其他">其他</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-4" style="display: none;" id="other_tumour_location">
-                                <input type="text" name="other_tumour_location" class="form-control" placeholder="在此填写『其他』部位">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">大体分型</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_gross" class="form-control" placeholder="大体分型">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">组织分型</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_typing" class="form-control" placeholder="组织分型">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">组织分级</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_grade" class="form-control" placeholder="组织分级">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">临床分期</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_stage" class="form-control" placeholder="临床分期">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">肿瘤大小</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_size" class="form-control" placeholder="肿瘤大小">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">淋巴结转移情况</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_transfer" class="form-control" placeholder="淋巴结转移情况">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">有无远处转移</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_long_transfer" class="form-control" placeholder="有无远处转移">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">肿瘤标志物</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="tumour_marker" class="form-control" placeholder="肿瘤标志物">
-                            </div>
-                        </div>
-                    </div>
-                    <div id="biochemical_test" style="display: none;">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">AFP</label>
-                            <div class="col-sm-3">
-                                <input type="number" step="0.1" max="10" min="0" name="AFP" class="form-control" placeholder="AFP">
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="AFP_desc" class="form-control">
-                                    <option value="正常">正常</option>
-                                    <option value="偏高">偏高</option>
-                                    <option value="偏低">偏低</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">CA125</label>
-                            <div class="col-sm-3">
-                                <input type="number" step="0.1" max="10" min="0" name="CA125" class="form-control" placeholder="CA125">
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="CA125_desc" class="form-control">
-                                    <option value="正常">正常</option>
-                                    <option value="偏高">偏高</option>
-                                    <option value="偏低">偏低</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">CEA</label>
-                            <div class="col-sm-3">
-                                <input type="number" step="0.1" max="10" min="0" name="CEA" class="form-control" placeholder="CEA">
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="CEA_desc" class="form-control">
-                                    <option value="正常">正常</option>
-                                    <option value="偏高">偏高</option>
-                                    <option value="偏低">偏低</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">CA199</label>
-                            <div class="col-sm-3">
-                                <input type="number" step="0.1" max="10" min="0" name="CA199" class="form-control" placeholder="CA199">
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="CA199_desc" class="form-control">
-                                    <option value="正常">正常</option>
-                                    <option value="偏高">偏高</option>
-                                    <option value="偏低">偏低</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">CYFRA21-1</label>
-                            <div class="col-sm-3">
-                                <input type="number" step="0.1" max="10" min="0" name="CYFRA21-1" class="form-control" placeholder="CYFRA21-1">
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="CYFRA21-1_desc" class="form-control">
-                                    <option value="正常">正常</option>
-                                    <option value="偏高">偏高</option>
-                                    <option value="偏低">偏低</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">PSA</label>
-                            <div class="col-sm-3">
-                                <input type="number" step="0.1" max="10" min="0" name="PSA" class="form-control" placeholder="PSA">
-                            </div>
-                            <div class="col-sm-3">
-                                <select name="PSA_desc" class="form-control">
-                                    <option value="正常">正常</option>
-                                    <option value="偏高">偏高</option>
-                                    <option value="偏低">偏低</option>
-                                </select>
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">其他</label>
+                        <div class="col-sm-4" id="other_disease">
+                            <input type="text" name="other_disease" class="form-control" placeholder="在此填写『其他』疾病">
                         </div>
                     </div>
 
+                    <div class="panel panel-info" id="pathological" style="display: none;">
+                        <div class="panel-heading">病理资料</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">肿瘤部位</label>
+                                <div class="col-sm-4">
+                                    <select id="tumour_location" name="tumour_location" class="form-control">
+                                        <option value="肺">肺</option>
+                                        <option value="胃">胃</option>
+                                        <option value="肝">肝</option>
+                                        <option value="肠">肠</option>
+                                        <option value="胰腺">胰腺</option>
+                                        <option value="食道">食道</option>
+                                        <option value="卵巢">卵巢</option>
+                                        <option value="前列腺">前列腺</option>
+                                        <option value="甲状腺">甲状腺</option>
+                                        <option value="乳腺">乳腺</option>
+                                        <option value="宫颈">宫颈</option>
+                                        <option value="膀胱">膀胱</option>
+                                        <option value="肾">肾</option>
+                                        <option value="淋巴">淋巴</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4" style="display: none;" id="other_tumour_location">
+                                    <input type="text" name="other_tumour_location" class="form-control" placeholder="在此填写『其他』部位">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">大体分型</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_gross" class="form-control" placeholder="大体分型">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">组织分型</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_typing" class="form-control" placeholder="组织分型">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">组织分级</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_grade" class="form-control" placeholder="组织分级">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">临床分期</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_stage" class="form-control" placeholder="临床分期">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">肿瘤大小</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_size" class="form-control" placeholder="肿瘤大小">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">淋巴结转移情况</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_transfer" class="form-control" placeholder="淋巴结转移情况">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">有无远处转移</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_long_transfer" class="form-control" placeholder="有无远处转移">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">肿瘤标志物</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tumour_marker" class="form-control" placeholder="肿瘤标志物">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <div class="panel panel-info"  id="biochemical_test" >
+            <div class="panel-heading">肿瘤生化检测</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">AFP</label>
+                    <div class="col-sm-3">
+                        <input type="number" step="0.1" max="10" min="0" name="AFP" class="form-control" placeholder="AFP">
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="AFP_desc" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="偏高">偏高</option>
+                            <option value="偏低">偏低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">CA125</label>
+                    <div class="col-sm-3">
+                        <input type="number" step="0.1" max="10" min="0" name="CA125" class="form-control" placeholder="CA125">
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="CA125_desc" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="偏高">偏高</option>
+                            <option value="偏低">偏低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">CEA</label>
+                    <div class="col-sm-3">
+                        <input type="number" step="0.1" max="10" min="0" name="CEA" class="form-control" placeholder="CEA">
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="CEA_desc" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="偏高">偏高</option>
+                            <option value="偏低">偏低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">CA199</label>
+                    <div class="col-sm-3">
+                        <input type="number" step="0.1" max="10" min="0" name="CA199" class="form-control" placeholder="CA199">
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="CA199_desc" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="偏高">偏高</option>
+                            <option value="偏低">偏低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">CYFRA21-1</label>
+                    <div class="col-sm-3">
+                        <input type="number" step="0.1" max="10" min="0" name="CYFRA21-1" class="form-control" placeholder="CYFRA21-1">
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="CYFRA21-1_desc" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="偏高">偏高</option>
+                            <option value="偏低">偏低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">PSA</label>
+                    <div class="col-sm-3">
+                        <input type="number" step="0.1" max="10" min="0" name="PSA" class="form-control" placeholder="PSA">
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="PSA_desc" class="form-control">
+                            <option value="正常">正常</option>
+                            <option value="偏高">偏高</option>
+                            <option value="偏低">偏低</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="panel panel-success">
             <div class="panel-heading">检测值</div>
             <div class="panel-body">
@@ -327,19 +336,28 @@
                 }
             });
 
-            //疾病种类开关
-            $('#tumour_info, #autoimmune, #inflammation').change(function() {
+//            //疾病种类开关
+//            $('#tumour_info, #autoimmune, #inflammation').change(function() {
+//                if( $('#tumour_info').val() !== '无' ) {
+//                    $('#biochemical_test').slideDown();
+//                    $('#pathological').slideDown();
+//                } else if( $('#autoimmune').val() !== '无' || $('#inflammation').val() !== '无' ) {
+//                    $('#biochemical_test').slideDown();
+//                    $('#pathological').slideUp();
+//                } else {
+//                    $('#biochemical_test').slideUp();
+//                    $('#pathological').slideUp();
+//                }
+//            });
+
+            $('#tumour_info').change(function() {
                 if( $('#tumour_info').val() !== '无' ) {
-                    $('#biochemical_test').slideDown();
                     $('#pathological').slideDown();
-                } else if( $('#autoimmune').val() !== '无' || $('#inflammation').val() !== '无' ) {
-                    $('#biochemical_test').slideDown();
-                    $('#pathological').slideUp();
                 } else {
-                    $('#biochemical_test').slideUp();
                     $('#pathological').slideUp();
                 }
             });
+
 
             //其他项开关
             $('#hospital, #tumour_location, #inflammation, #autoimmune').change(function() {
