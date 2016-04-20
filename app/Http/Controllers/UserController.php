@@ -33,7 +33,7 @@ class UserController extends Controller
             }
         }
 
-        return View('login');
+        return view('user.login');
     }
 
     public function logout() {
