@@ -8,6 +8,7 @@ use App\Http\Models\Patient;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use App\Libs\SweeterFetch;
+use SimpleExcel\SimpleExcel;
 
 class SampleController extends Controller
 {
@@ -122,6 +123,22 @@ class SampleController extends Controller
         $rows = [];
 
         return view('sample.patient', ['rows'=>$rows]);
+    }
+
+    public function getImport() {
+
+//        $excel = new SimpleExcel('CSV');
+//        $excel->parser->loadFile('/var/www/zhixian/storage/files/import.csv');
+//
+//
+//        $field = $excel->parser->getField();
+//        var_dump( $field[0] );
+//        echo "<br />";
+//        var_dump( $field[1] );
+//        echo "<br />";
+//        var_dump( $field[2] );
+
+        return view('sample.import');
     }
 
 }

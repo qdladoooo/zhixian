@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- site css -->
     <link rel="stylesheet" href="/dist/css/site.min.css">
+    @yield('style')
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.js"></script>
@@ -58,7 +59,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-xs-12 col-sm-9 content">
+        <div class="col-xs-12 col-sm-9 content" style="min-height: 500px;">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>侧边栏</h3>
@@ -78,5 +79,6 @@
         </div>
     </div>
 </div>
+@yield('script')
 </body>
 </html>
