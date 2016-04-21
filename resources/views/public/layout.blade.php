@@ -43,7 +43,7 @@
                     <div class="collapse in" id="demo3">
                         <a href="/sample" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-qrcode"></i>  录入(已完成)</a>
                         <a href="/sample/patient" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-search"></i>  查询(已完成)</a>
-                        <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-upload"></i>  导入</a>
+                        <a href="/sample/import" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-upload"></i>  导入</a>
                         <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cloud-download"></i>  导出</a>
                         <a href="javascript:;" class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-exclamation-sign"></i>  删除</a>
                     </div>
