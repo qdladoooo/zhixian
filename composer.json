@@ -14,7 +14,8 @@
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
-        "faisalman/simple-excel-php": "0.3.*"
+        "faisalman/simple-excel-php": "0.3.*",
+        "predis/predis": "~1.0"
     },
     "autoload": {
         "classmap": [
