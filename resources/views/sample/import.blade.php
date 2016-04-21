@@ -2,7 +2,7 @@
 @section('content')
     <span class="btn btn-success fileinput-button">
         <i class="glyphicon glyphicon-plus"></i>
-        <span>Select files...</span>
+        <span>选择文件...</span>
         <!-- The file input field used as target for the file upload widget -->
         <input id="fileupload" type="file" name="files[]" multiple>
     </span>
@@ -14,6 +14,31 @@
     </div>
     <!-- The container for the uploaded files -->
     <div id="files" class="files"></div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">导入记录</div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>文件名</th>
+                    <th>是否导入成功</th>
+                    <th>操作日期</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach( $logs as $log )
+                    <tr>
+                        <th scope="row">{{ $log->id }}</th>
+                        <td>{{ $log->file_name }}</td>
+                        <td>{{ $log->success == 1 ? '成功' : '失败' }}</td>
+                        <td>{{ $log->created_at }}</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+    </div>
     <script type="text/javascript">
         $(function () {
             'use strict';

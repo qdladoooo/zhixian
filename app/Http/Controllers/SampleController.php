@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\ImportLog;
 use App\Http\Models\Sample;
 use App\Http\Models\Patient;
 
 use App\Http\Requests;
+use App\Libs\SampleImporter;
 use Illuminate\Support\Facades\Input;
 use App\Libs\SweeterFetch;
-use SimpleExcel\SimpleExcel;
+
 
 class SampleController extends Controller
 {
@@ -77,6 +79,7 @@ class SampleController extends Controller
         $CYFRA21_1_desc = Input::get('CYFRA21-1_desc');
         $PSA = Input::get('PSA');
         $PSA_desc = Input::get('PSA_desc');
+        $detected_value = Input::get('detected_value');
 
         $sample = new Sample();
         $sample->patient_id = $patient->id;
@@ -108,6 +111,7 @@ class SampleController extends Controller
         $sample->cyfra21_1_desc = $CYFRA21_1_desc;
         $sample->psa = $PSA;
         $sample->psa_desc = $PSA_desc;
+        $sample->detected_value = $detected_value;
 
         $sample->save();
 
@@ -127,18 +131,8 @@ class SampleController extends Controller
 
     public function getImport() {
 
-//        $excel = new SimpleExcel('CSV');
-//        $excel->parser->loadFile('/var/www/zhixian/storage/files/import.csv');
-//
-//
-//        $field = $excel->parser->getField();
-//        var_dump( $field[0] );
-//        echo "<br />";
-//        var_dump( $field[1] );
-//        echo "<br />";
-//        var_dump( $field[2] );
-
-        return view('sample.import');
+        $logs = ImportLog::orderBy('id', 'desc')->take(10)->get();
+        return view('sample.import', ['logs'=>$logs]);
     }
 
 }
