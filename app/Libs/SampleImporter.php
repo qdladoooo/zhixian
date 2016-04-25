@@ -37,7 +37,9 @@ class SampleImporter {
     //获取上传的还未导入的csv文件名
     public function getUploadFilePath() {
         //上传文件夹地址
-        $path = dirname( $_SERVER['DOCUMENT_ROOT'] ) . './storage/upload_file/';
+        //todo: 命令行不适用
+//        $path = dirname( $_SERVER['DOCUMENT_ROOT'] ) . './storage/upload_file/';
+        $path = '/var/www/zhixian.wobu2.com/storage/upload_file/';
         $files = scandir($path);
 
         //存放没被导入过的文件
