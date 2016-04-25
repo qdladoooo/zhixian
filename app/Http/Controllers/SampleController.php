@@ -134,5 +134,4 @@ class SampleController extends Controller
         $logs = ImportLog::orderBy('id', 'desc')->take(10)->get();
         return view('sample.import', ['logs'=>$logs]);
     }
-
 }
