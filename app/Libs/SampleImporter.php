@@ -1,4 +1,5 @@
 <?php namespace App\Libs;
+
 use App\Http\Models\ImportLog;
 use App\Http\Models\Patient;
 use App\Http\Models\Sample;
@@ -16,6 +17,12 @@ use Illuminate\Support\Facades\Log;
 class SampleImporter {
     const REDIS_SETS_KEY_UPLOADED_FILE = 'UPLOADED_FILE';
 
+    /*
+     * 导入
+     *
+     * 执行此命令,讲读取上传文件目录,将未导入过的文件导入至数据库.
+     *
+     * */
     public static function import() {
         $si = new SampleImporter();
         //取得文件地址
@@ -37,8 +44,6 @@ class SampleImporter {
     //获取上传的还未导入的csv文件名
     public function getUploadFilePath() {
         //上传文件夹地址
-        //todo: 命令行不适用
-//        $path = dirname( $_SERVER['DOCUMENT_ROOT'] ) . './storage/upload_file/';
         $path = '/var/www/zhixian.wobu2.com/storage/upload_file/';
         $files = scandir($path);
 
@@ -81,10 +86,20 @@ class SampleImporter {
     //将数据保存至数据库
     public function saver( $data ) {
         $flag = true;
+
         DB::beginTransaction();
 
-        //todo: 患者去重
+
         foreach($data as $row) {
+            //患者去重
+            //age, gender, 'afp', 'ca125', 'cea', 'ca199', 'cyfra21_1', 'psa'
+            $patient = Patient::where(['age'=>$row['age'], 'gender'=>$row['gender']])->first();
+            if( !empty($patient) ) {
+                $sample = Sample::where(['patient_id'=>$patient->id, 'afp'=>$row['afp'], 'ca125'=>$row['ca125'], 'cea'=>$row['cea'], 'ca199'=>$row['ca199'], 'cyfra21_1'=>$row['cyfra21_1'], 'psa'=>$row['psa']])->first();
+                if(!empty($sample)) {
+                    continue;
+                }
+            }
 
             $r1 = $patient = Patient::create($row);
             $r2 = $sample = Sample::create($row);
