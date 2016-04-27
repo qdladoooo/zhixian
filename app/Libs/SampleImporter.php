@@ -94,9 +94,12 @@ class SampleImporter {
         $table_head_str = array_shift($lines);
         $table_head_ar = explode(',', $table_head_str);
 
+        //todo: 暂未实现表格可以任意调换顺序的效果,稍后实现
         $table_head_transer = [];
         foreach($table_head_ar as $grid) {
-            array_push($table_head_transer, $key_map[$grid]);
+            if( array_key_exists($grid, $key_map) ) {
+                array_push($table_head_transer, $key_map[$grid]);
+            }
         }
 
         $data = [];
