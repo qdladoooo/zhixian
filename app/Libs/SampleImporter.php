@@ -139,20 +139,22 @@ class SampleImporter {
 
         foreach($data as $row) {
             //患者去重
-            //age, gender, 'afp', 'ca125', 'cea', 'ca199', 'cyfra21_1', 'psa'
-            $patient = Patient::where(['age'=>$row['age'], 'gender'=>$row['gender']])->first();
-            if( !empty($patient) ) {
-                $sample = Sample::where(['patient_id'=>$patient->id, 'afp'=>$row['afp'], 'ca125'=>$row['ca125'], 'cea'=>$row['cea'], 'ca199'=>$row['ca199'], 'cyfra21_1'=>$row['cyfra21_1'], 'psa'=>$row['psa']])->first();
-                if(!empty($sample)) {
-                    continue;
-                }
+            //nane, age, gender, 'afp', 'ca125', 'cea', 'ca199', 'cyfra21_1', 'psa'
+            $patient = Patient::where(['name'=>$row['name'],'age'=>$row['age'], 'gender'=>$row['gender']])->first();
+            $sample = Sample::where(['patient_id'=>$patient->id, 'afp'=>$row['afp'], 'ca125'=>$row['ca125'],
+                'cea'=>$row['cea'], 'ca199'=>$row['ca199'], 'cyfra21_1'=>$row['cyfra21_1'], 'psa'=>$row['psa']])->first();
+            if( !empty($patient) && !empty($sample) ) {
+                continue;
             }
 
-            $r1 = $patient = Patient::create($row);
+            if( empty($patient) ) {
+                $patient = Patient::create($row);
+            }
+
             $r2 = $sample = Sample::create($row);
             $sample->patient_id = $patient->id;
             $r3 = $sample->save();
-            if(!($r1 && $r2 && $r3)) {
+            if(!($r2 && $r3)) {
                 $flag = false;
             }
         }

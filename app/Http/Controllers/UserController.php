@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Models\User;
 use Illuminate\Support\Facades\Input;
 use App\Libs\SampleImporter;
+use App\Http\Models\Patient;
 
 class UserController extends Controller
 {
@@ -18,6 +19,9 @@ class UserController extends Controller
 //        $success = $si->saver($data);
 //        var_dump($success);
 
+//        $patient = Patient::where(['name'=>'','age'=>16, 'gender'=>''])->first();
+//        var_dump( $patient );
+//        exit;
 
         return view('user.index');
     }
