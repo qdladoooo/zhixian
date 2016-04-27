@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Log;
 /**
  * 导入用户上传的csv文件到数据库
  *
- *
 */
 
 class SampleImporter {
@@ -60,25 +59,54 @@ class SampleImporter {
         return $to_import_files;
     }
 
-    //将文件中的数据解释为数组
+    /*
+     * 将文件中的数据解释为数组
+     *
+     * 解析csv面对的几个问题
+     * 1.字符编码 cp936 to utf-8
+     * 2.换行符   \n vs \r\n
+     * 3.字段分隔  作为分隔符的,(半角逗号) vs 文本中出现的,
+     *
+     * 这里不试图为以上问题寻找通用解法, 从输入文件控制变化
+     *
+     * */
     public function analyseCSV( $file ) {
-        $excel = new SimpleExcel('CSV');
-        $excel->parser->loadFile( $file );
+        //表头与数据库字段的映射关系
+        $key_map = ['姓名'=>'name', '年龄'=>'age', '性别'=>'gender', '住院号'=>'check_in_no', '来样医院'=>'hospital',
+            '身份证号'=>'card_id', '电话号码'=>'tel',
+            '流水号'=>'flow_id', '采样日期'=>'sampling_date', '来样样本号'=>'sample_no', '是否健康'=>'is_healthy',
+            '炎症'=>'inflammation', '自身免疫性疾病'=>'autoimmune',  '其他疾病'=>'other_disease', '肿瘤'=>'tumour_info',
+            '手术日期'=>'surgery_date', '肿瘤部位'=>'tumour_location', '大体分型'=>'tumour_gross',
+            '组织分型'=>'tumour_typing', '组织分级'=>'tumour_grade', '临床分期'=>'tumour_stage',  '临床分期来样'=>'tumour_stage_sample',
+            '肿瘤大小'=>'tumour_size', '原发肿瘤'=>'tumour_primary', '淋巴结转移情况'=>'tumour_transfer',
+            '有无远处转移'=>'tumour_long_transfer',
+            'AFP（酶免)'=>'afp',  'AFP结果判定'=>'afp_desc', 'CA125（酶免）值'=>'ca125',  'CA125结果判定'=>'ca125_desc',
+            'CEA（酶免）值'=>'cea',  'CEA结果判定'=>'cea_desc',
+            'CA199E值'=>'ca199',  'CA199E结果判定'=>'ca199_desc', 'CYFRA21-1(酶免)值'=>'cyfra21_1',  'CYFRA21-1结果判定'=>'cyfra21_1_desc',
+            'PSAE值'=>'psa',  'PSAE结果判定'=>'psa_desc', '检测值'=>'detected_value',  '检测值结果判定'=>'detected_value_desc', '备注'=>'remark'];
 
-        $field = $excel->parser->getField();
-        $keys = ['name', 'age', 'gender', 'check_in_no', 'card_id', 'tel', 'is_healthy', 'inflammation', 'autoimmune', 'tumour_info', 'tumour_location', 'tumour_gross', 'tumour_typing', 'tumour_grade', 'tumour_stage', 'tumour_size', 'tumour_transfer', 'tumour_long_transfer', 'afp', 'ca125', 'cea', 'ca199', 'cyfra21_1', 'psa', 'detected_value'];
+        //读取csv文件, 按行分割
+        $file_str = file_get_contents($file);
+        $file_str = mb_convert_encoding($file_str, 'utf8', 'cp936');
+        $lines = explode("\r\n", $file_str);
+
+        //获取并处理表头
+        $table_head_str = array_shift($lines);
+        $table_head_ar = explode(',', $table_head_str);
+
+        $table_head_transer = [];
+        foreach($table_head_ar as $grid) {
+            array_push($table_head_transer, $key_map[$grid]);
+        }
 
         $data = [];
-        foreach($field as $rows) {
-            $row = $rows[0];
-            $row = mb_convert_encoding($row, 'utf8', 'cp936');
-
-            $cols = explode(';', $row);
-
-
-            $data[] = array_combine($keys, $cols);
+        foreach($lines as $row) {
+            if( empty( trim($row) ) ) {
+                continue;
+            }
+            $row_ar = explode(',', $row);
+            $data[] = array_combine($table_head_transer, $row_ar);
         }
-        array_shift($data);
 
         return $data;
     }
@@ -88,7 +116,6 @@ class SampleImporter {
         $flag = true;
 
         DB::beginTransaction();
-
 
         foreach($data as $row) {
             //患者去重
