@@ -10,11 +10,7 @@
             <td>住院号</td>
             <td>身份证号</td>
             <td>电话</td>
-            <td>采样时间</td>
-            <td>录入时间</td>
-            <td>条码</td>
             <td>存放位置</td>
-            <td>是否健康</td>
             <td>肿瘤部位</td>
             <td>大体类型</td>
             <td>大小</td>
@@ -33,11 +29,7 @@
             <td>{{$row['check_in_no']}}</td>
             <td>{{$row['card_id']}}</td>
             <td>{{$row['tel']}}</td>
-            <td>{{$row['sample_create_time']}}</td>
-            <td>{{$row['input_time']}}</td>
-            <td>{{$row['qr']}}</td>
             <td>{{$row['store_position']}}</td>
-            <td>{{$row['is_heathy']}}</td>
             <td>{{$row['tumour_location']}}</td>
             <td>{{$row['tumour_gross']}}</td>
             <td>{{$row['tumour_size']}}</td>

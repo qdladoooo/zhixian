@@ -120,11 +120,10 @@ class SampleController extends Controller
 
     public function getPatient() {
 
-//        $db = new SweeterFetch();
-//        $sql = 'select *, p.id as patient_id, p.updated_at as input_time from patient p inner join sample d on p.id = d.patient_id';
-//        $rows = $db->Eq( $sql );
+        $db = new SweeterFetch();
+        $sql = 'select *, p.id as patient_id, p.updated_at as input_time from patient p inner join sample d on p.id = d.patient_id';
+        $rows = $db->Eq( $sql );
 
-        $rows = [];
 
         return view('sample.patient', ['rows'=>$rows]);
     }
