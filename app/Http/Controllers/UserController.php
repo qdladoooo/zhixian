@@ -18,6 +18,7 @@ class UserController extends Controller
 //        $success = $si->saver($data);
 //        var_dump($success);
 
+
         return view('user.index');
     }
 

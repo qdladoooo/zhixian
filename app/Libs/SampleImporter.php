@@ -94,11 +94,20 @@ class SampleImporter {
         $table_head_str = array_shift($lines);
         $table_head_ar = explode(',', $table_head_str);
 
-        //todo: 暂未实现表格可以任意调换顺序的效果,稍后实现
+        /*
+         * 表格的列名可以任意调换顺序
+         *
+         * 遍历表头, 将汉字替换为对应的英文列名, 同时记录需要入库的表头序号, 在表格body中提取
+         *
+         * */
+        $collect_index = [];
         $table_head_transer = [];
-        foreach($table_head_ar as $grid) {
+        foreach($table_head_ar as $i => $grid) {
             if( array_key_exists($grid, $key_map) ) {
+                //获取表头数组
                 array_push($table_head_transer, $key_map[$grid]);
+                //收集对应的序号
+                array_push($collect_index, $i);
             }
         }
 
@@ -108,7 +117,15 @@ class SampleImporter {
                 continue;
             }
             $row_ar = explode(',', $row);
-            $data[] = array_combine($table_head_transer, $row_ar);
+            $collect_ar = [];
+            //遍历数据数组,取出需要收集的数据
+            foreach($row_ar as $i=>$grid) {
+                if( in_array($i, $collect_index) ) {
+                    array_push($collect_ar, $grid);
+                }
+            }
+
+            $data[] = array_combine($table_head_transer, $collect_ar);
         }
 
         return $data;
