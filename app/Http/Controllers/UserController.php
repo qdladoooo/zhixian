@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Models\User;
 use Illuminate\Support\Facades\Input;
+use App\Libs\SampleImporter;
 
 class UserController extends Controller
 {
     public function getIndex() {
+//        $si = new SampleImporter();
+//        $data = $si->analyseCSV( '/var/www/zhixian/storage/upload_file/test.csv' );
+//        //导入数据库
+//        $success = $si->saver($data);
+//        var_dump($success);
+
         return view('user.index');
     }
 
