@@ -141,14 +141,14 @@ class SampleImporter {
             //患者去重
             //nane, age, gender, 'afp', 'ca125', 'cea', 'ca199', 'cyfra21_1', 'psa'
             $patient = Patient::where(['name'=>$row['name'],'age'=>$row['age'], 'gender'=>$row['gender']])->first();
+            if( empty($patient) ) {
+                $patient = Patient::create($row);
+            }
+
             $sample = Sample::where(['patient_id'=>$patient->id, 'afp'=>$row['afp'], 'ca125'=>$row['ca125'],
                 'cea'=>$row['cea'], 'ca199'=>$row['ca199'], 'cyfra21_1'=>$row['cyfra21_1'], 'psa'=>$row['psa']])->first();
             if( !empty($patient) && !empty($sample) ) {
                 continue;
-            }
-
-            if( empty($patient) ) {
-                $patient = Patient::create($row);
             }
 
             $r2 = $sample = Sample::create($row);
