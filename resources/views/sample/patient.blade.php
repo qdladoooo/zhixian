@@ -1,43 +1,76 @@
 @extends('public.layout')
 @section('content')
-    <table class="table table-striped">
-        <tr>
-            <td>病人编号</td>
-            <td>姓名</td>
-            <td>年龄</td>
-            <td>性别</td>
-            <td>医院</td>
-            <td>住院号</td>
-            <td>身份证号</td>
-            <td>电话</td>
-            <td>存放位置</td>
-            <td>肿瘤部位</td>
-            <td>大体类型</td>
-            <td>大小</td>
-            <td>分化程度</td>
-            <td>分期</td>
-            <td>分型</td>
-            <td>肿瘤标志物</td>
-        </tr>
-        @foreach($rows as $row)
-        <tr>
-            <td>{{$row['patient_id']}}</td>
-            <td>{{$row['name']}}</td>
-            <td>{{$row['age']}}</td>
-            <td>{{$row['gender']}}</td>
-            <td>{{$row['hospital']}}</td>
-            <td>{{$row['check_in_no']}}</td>
-            <td>{{$row['card_id']}}</td>
-            <td>{{$row['tel']}}</td>
-            <td>{{$row['store_position']}}</td>
-            <td>{{$row['tumour_location']}}</td>
-            <td>{{$row['tumour_gross']}}</td>
-            <td>{{$row['tumour_size']}}</td>
-            <td>{{$row['tumour_grade']}}</td>
-            <td>{{$row['tumour_stage']}}</td>
-            <td>{{$row['tumour_typing']}}</td>
-            <td>{{$row['tumour_marker']}}</td>
-        </tr>
-        @endforeach
-    </table>
+    <style type="text/css">
+        #container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #container input {
+            width: 100%;
+        }
+
+        .mt5 {
+            margin-top: 5px;
+        }
+    </style>
+    <div id="container">
+        <form action="">
+            <table class="table table-bordered">
+                <tr>
+                    <td><input type="text" placeholder="id" /></td>
+                    <td colspan="2"><input type="text" placeholder="名字"></td>
+                    <td colspan="2"><input type="text" placeholder="性别"></td>
+                    <td colspan="2"><input type="text" placeholder="医院"></td>
+                </tr>
+                <tr>
+                    <td>afp</td>
+                    <td>ca125</td>
+                    <td>cea</td>
+                    <td>ca199</td>
+                    <td>cyfra21_1</td>
+                    <td>psa</td>
+                    <td>检测值</td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                    <td><input type="text" placeholder="from" value=""><input class="mt5" type="text" placeholder="to" value=""></td>
+                </tr>
+            </table>
+            <input class="btn btn-primary" type="submit" value="搜索">
+        </form>
+    </div>
+    @foreach($rows as $row)
+        <table class="table table-bordered">
+            <tr>
+                <td>{{$row['patient_id']}}</td>
+                <td colspan="2">{{$row['name']}}</td>
+                <td colspan="2">{{$row['gender']}}</td>
+                <td colspan="2">{{$row['hospital']}}</td>
+            </tr>
+            <tr>
+                <td>afp</td>
+                <td>ca125</td>
+                <td>cea</td>
+                <td>ca199</td>
+                <td>cyfra21_1</td>
+                <td>psa</td>
+                <td>检测值</td>
+            </tr>
+            <tr>
+                <td>{{$row['afp']}}</td>
+                <td>{{$row['ca125']}}</td>
+                <td>{{$row['cea']}}</td>
+                <td>{{$row['ca199']}}</td>
+                <td>{{$row['cyfra21_1']}}</td>
+                <td>{{$row['psa']}}</td>
+                <td>{{$row['detected_value']}}</td>
+            </tr>
+        </table>
+    @endforeach
 @endsection
