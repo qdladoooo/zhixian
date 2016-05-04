@@ -1,19 +1,5 @@
 @extends('public.layout')
 @section('content')
-    <style type="text/css">
-        #container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        #container input {
-            width: 100%;
-        }
-
-        .mt5 {
-            margin-top: 5px;
-        }
-    </style>
     <div id="container">
         <form action="">
             <table class="table table-bordered">
@@ -44,6 +30,9 @@
             </table>
             <input class="btn btn-primary" type="submit" value="搜索">
         </form>
+    </div>
+    <div class="clearfix" style="margin-bottom: 30px;">
+    {!! $paginator !!}
     </div>
     @foreach($rows as $row)
         <table class="table table-bordered">

@@ -7,9 +7,9 @@ use App\Http\Models\Sample;
 use App\Http\Models\Patient;
 use App\Http\Requests;
 use App\Libs\SampleImporter;
+use App\Libs\Utils;
 use Illuminate\Support\Facades\Input;
 use App\Libs\SweeterFetch;
-
 
 class SampleController extends Controller
 {
@@ -31,13 +31,16 @@ class SampleController extends Controller
     }
 
     public function getPatient() {
+        $page = (int)Input::get('p');
+        $page = $page ?: 1;
 
         $db = new SweeterFetch();
         $sql = 'select *, p.id as patient_id, p.updated_at as input_time from patient p inner join sample d on p.id = d.patient_id';
         $rows = $db->Eq( $sql );
 
+        $paginator = Utils::paginator('/sample/patient?', $page, 10 );
 
-        return view('sample.patient', ['rows'=>$rows]);
+        return view('sample.patient', ['rows'=>$rows, 'paginator'=>$paginator]);
     }
 
     public function getImport() {

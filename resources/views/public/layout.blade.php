@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- site css -->
     <link rel="stylesheet" href="/dist/css/site.min.css">
+    <link rel="stylesheet" href="/statics/css/main.css">
     @yield('style')
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
