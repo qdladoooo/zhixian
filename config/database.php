@@ -66,6 +66,18 @@ return [
             'engine' => null,
         ],
 
+        'sphinx' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '0'),
+            'port' => env('DB_PORT', '9306'),
+            'database' => 'sample',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),
