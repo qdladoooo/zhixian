@@ -40,7 +40,7 @@ class SampleController extends Controller
         $offset = ($page-1)*$limit;
 
         //总条数
-        $sphinx = new Sphinx();
+        $sphinx = new SweeterFetch();
         $sql = 'select count(*) from sample';
         $count = $sphinx->Es($sql);
         $max = ceil($count/$limit);
