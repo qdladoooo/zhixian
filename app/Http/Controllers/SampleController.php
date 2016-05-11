@@ -46,7 +46,7 @@ class SampleController extends Controller
         $max = ceil($count/$limit);
 
         $db = new SweeterFetch();
-        $sql = "select *, p.id as patient_id, p.updated_at as input_time from patient p inner join sample d on p.id = d.patient_id order by d.id desc limit {$offset}, {$limit}";
+        $sql = "select *, p.id as patient_id, p.updated_at as input_time from patient p right join sample d on p.id = d.patient_id order by d.id desc limit {$offset}, {$limit}";
         $rows = $db->Eq( $sql );
 
         //分页控件
