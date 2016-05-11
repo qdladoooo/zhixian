@@ -39,15 +39,17 @@ class SampleController extends Controller
         $limit = 20;
         $offset = ($page-1)*$limit;
 
+        //总条数
         $sphinx = new Sphinx();
         $sql = 'select count(*) from sample';
         $count = $sphinx->Es($sql);
         $max = ceil($count/$limit);
 
         $db = new SweeterFetch();
-        $sql = "select *, p.id as patient_id, p.updated_at as input_time from patient p inner join sample d on p.id = d.patient_id limit {$offset}, {$limit}";
+        $sql = "select *, p.id as patient_id, p.updated_at as input_time from patient p inner join sample d on p.id = d.patient_id order by d.id desc limit {$offset}, {$limit}";
         $rows = $db->Eq( $sql );
 
+        //分页控件
         $paginator = Utils::paginator('/sample/patient?', $page, $max );
 
         return view('sample.patient', ['rows'=>$rows, 'paginator'=>$paginator]);

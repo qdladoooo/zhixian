@@ -37,7 +37,7 @@
     @foreach($rows as $row)
         <table class="table table-bordered">
             <tr>
-                <td>{{$row['patient_id']}}</td>
+                <td>{{$row['flow_id']}}</td>
                 <td colspan="2">{{$row['name']}}</td>
                 <td colspan="2">{{$row['gender']}}</td>
                 <td colspan="2">{{$row['hospital']}}</td>

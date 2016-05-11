@@ -97,7 +97,8 @@ class Utils {
     }
 
     //分页
-    public static function paginator($url, $page, $max_page, $sample = false, $label_num = 5) {
+    public static function paginator($url, $page, $max_page, $sample = false, $label_num = 6) {
+        //页码描述以及『首页』『上一页』按钮
         $content = '<div class="pages ac">';
         $content .='<span>共 ' . $max_page . '页</span>';
         if($page != 1) {
@@ -107,10 +108,16 @@ class Utils {
             }
         }
 
+        //页码,确定起始页与终止页
         $start = ($page - floor($label_num/2));
         $start = ($start > 0) ? $start : 1;
         $end = $start + $label_num;
+        //添加额外规则, 保证页码数量等于$label_num
+        if($end > $max_page) {
+            $start = max(1, $start - ($end-$max_page));
+        }
         $end = ($end < $max_page) ? $end : $max_page;
+
         for($item=$start; $item<=$end; $item++) {
             if($item == $page) {
                 $content .= "<strong>{$item}</strong>";
@@ -118,6 +125,8 @@ class Utils {
                 $content .= '<a href="' . $url . 'p=' . $item . '">' . $item . '</a>';
             }
         }
+
+        //『下一页』『末页』按钮
         if($page != $max_page) {
             if(!$sample) {
                 $content .= '<a class="pageTxt" href="' . $url . 'p=' . ($page+1) . '">下一页»</a>';
